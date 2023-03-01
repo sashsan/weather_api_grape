@@ -1,0 +1,74 @@
+<h3 align="center">Weather APP</h3>
+<br>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td>
+      <%= button_to 'Текущая температура',
+                    '/api/v1/weather/current',
+                    method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td>
+      <%= button_to 'Почасовая температура за последние 24 часа',
+                    '/api/v1/weather/historical',
+                    method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td>
+      <%=
+        button_to 'Максимальная темперетура за 24 часа',
+                  '/api/v1/weather/historical/max',
+                  method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td><%= button_to 'Минимальная темперетура за 24 часа',
+                      '/api/v1/weather/historical/min',
+                      method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">5</th>
+    <td><%= button_to 'Средняя темперетура за 24 часа',
+                      '/api/v1/weather/historical/avg',
+                      method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">7</th>
+    <td>
+      <%= button_to 'Статус бекенда' ,
+                    '/api/v1/health',
+                    method: :get %>
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">8</th>
+    <td>
+      <%= button_to 'Документация',
+                      '/api/v1/docs',
+                      method: :get %>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<%= form_with url: "/api/v1/weather/historical/by_time", method: :get do |form| %>
+  <%= form.label :query, "Input timestamp:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>

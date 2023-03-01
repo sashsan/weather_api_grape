@@ -25,6 +25,7 @@ Things you may want to cover:
 * > Rails 7.0.4.2
   
 Setup:
+* > cp config/application.sample.yml config/application.yml
 * > bundle
 * > rails db:create && rails db:migrate && rails db:seed
 * > rails s
